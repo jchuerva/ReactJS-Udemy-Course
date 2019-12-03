@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import "./style.css";
 
 // Destructuring:
 // const Location = (props) => {
@@ -8,7 +9,7 @@ const Location = ({ city }) => {
   // const { city } = props;
 
   return (
-    <div>
+    <div className="LocationCont">
       <h1>{city}</h1>
     </div>
   );
