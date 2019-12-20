@@ -48,8 +48,7 @@ class WeatherLocation extends Component{
     console.log("actualizado");
 
     this.setState({
-      city: 'Sevilla',
-      data: data2,
+      data: data2
     });
   }
 
