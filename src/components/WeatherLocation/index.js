@@ -12,6 +12,12 @@ import {
   FOG
 } from "../../constants/weathers";
 
+const location = "Huelva,es";
+const api_key = "ae752760eeef771d434926078c5f53c3";
+const url_base_weather = "http://api.openweathermap.org/data/2.5/weather";
+
+const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`
+
 const data = {
   temperature: 5,
   weatherState: RAIN,
@@ -45,6 +51,7 @@ class WeatherLocation extends Component{
   }
 
   handleUpdateClick = () => {
+    fetch(api_weather);
     console.log("actualizado");
 
     this.setState({
