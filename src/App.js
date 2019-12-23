@@ -1,6 +1,13 @@
 import React, {Component} from "react";
-import WeatherLocation from "./components/WeatherLocation";
 import "./App.css";
+import LocationList from "./components/LocationList";
+
+const cities = [
+  "Huelva,es",
+  "Málaga,es",
+  "London,uk",
+  "Lima,pe"
+]
 
 // function App() {
 class App extends Component {
@@ -8,7 +15,7 @@ class App extends Component {
   return (
     <div className="App">
       <header className="App-header">
-        <WeatherLocation city="Huelva,es" />
+        <LocationList cities={cities}/>
       </header>
     </div>
   );
