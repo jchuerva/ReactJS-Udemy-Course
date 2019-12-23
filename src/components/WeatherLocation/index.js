@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import convert from 'convert-units';
 import Location from "./Location";
 import WeatherData from "./WeatherData";
 import './style.css';
@@ -25,12 +26,6 @@ const data = {
   wind: '10 m/s'
 };
 
-const data2 = {
-  temperature: 10,
-  weatherState: WINDY,
-  humidity: 10,
-  wind: "10 m/s"
-};
 // functional component
 // const WeatherLocation = () => (
 //   <div className="weatherLocationCont">
@@ -47,16 +42,40 @@ class WeatherLocation extends Component{
     this.state = {
       city: 'Huelva',
       data: data,
+    };
+  }
+
+  getTemp = kelvin => {
+    return Number(convert(kelvin).from("K").to("C").toFixed(1));
+  }
+  getWeatherState = weather_data => {
+    return SUN
+  };
+
+  getData = weather_data => {
+    const { humidity, temp} = weather_data.main;
+    const { speed} = weather_data.wind;
+    const weatherState = this.getWeatherState;
+    const temperature = this.getTemp(temp)
+    const data = {
+      humidity,
+      temperature,
+      weatherState,
+      wind: `${speed} m/s`,
     }
+    return data;
   }
 
   handleUpdateClick = () => {
-    fetch(api_weather);
-    console.log("actualizado");
-
-    this.setState({
-      data: data2
-    });
+    fetch(api_weather).then( resolve => {
+      return resolve.json();
+    }).then(data => {
+      const newWeather = this.getData(data);
+      console.log(newWeather);
+      this.setState({
+        data: newWeather
+      });
+    })
   }
 
   render (){
