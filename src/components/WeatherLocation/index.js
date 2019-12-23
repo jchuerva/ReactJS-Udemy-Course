@@ -14,6 +14,7 @@ import {
   FOG
 } from "../../constants/weathers";
 
+
 const data = {
   temperature: 5,
   weatherState: RAIN,
@@ -38,12 +39,24 @@ class WeatherLocation extends Component{
       city: 'Huelva',
       data: data,
     };
+    console.log("constructor");
   }
 
+  componentDidMount() {
+    console.log("componentDidMount");
+    this.handleUpdateClick();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate");
+  }
+
+  
   handleUpdateClick = () => {
     fetch(api_weather).then( resolve => {
       return resolve.json();
     }).then(data => {
+      console.log("handleUpdateClick");
       const newWeather = transformWeather(data);
       console.log(newWeather);
       this.setState({
@@ -53,6 +66,7 @@ class WeatherLocation extends Component{
   }
 
   render (){
+    console.log("render");
     const {city, data} = this.state;
     return (
       <div className="weatherLocationCont">
