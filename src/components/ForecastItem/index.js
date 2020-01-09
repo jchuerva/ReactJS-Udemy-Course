@@ -6,7 +6,7 @@ const ForecastItem = ({weekDay, hour, data}) => {
   return (
     <div>
       <div>{weekDay} Hora: {hour} hs</div>
-      <WeatherData data={data}/>
+      <WeatherData key={weekDay} data={data}/>
     </div>
   )
 }
