@@ -13,7 +13,7 @@ const getTemp = kelvin => {
     convert(kelvin)
       .from("K")
       .to("C")
-      .toFixed(1)
+      .toFixed(0)
   );
 };
 
