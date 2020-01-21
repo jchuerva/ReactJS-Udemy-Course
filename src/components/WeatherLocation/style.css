@@ -21,4 +21,5 @@
   padding: 15px;
   font-family: "Roboto", sans-serif;
   box-shadow: 10px 10px 40px -12px rbga(0, 0, 0, 0.75);
+  cursor: pointer;
 }
