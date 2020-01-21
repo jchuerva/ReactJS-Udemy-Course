@@ -21,9 +21,9 @@ const LocationList = ({ cities, onSelectedLoation }) => {
   return <div className="locationList">{strToCompoents(cities)}</div>;
 };
 
-LocationList.proTypes = {
+LocationList.propTypes = {
   cities: PropTypes.array.isRequired,
-  onSelectedLoation: PropTypes.func,
+  onSelectedLoation: PropTypes.func
 };
 
 export default LocationList;
